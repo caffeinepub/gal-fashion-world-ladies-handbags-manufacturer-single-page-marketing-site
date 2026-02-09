@@ -1,0 +1,62 @@
+name: Production Publish Checks
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'frontend/domain-slug.json'
+      - 'frontend/DEPLOYMENT.md'
+      - 'frontend/scripts/validate-production-slug.mjs'
+      - '.github/workflows/production-publish-checks.yml'
+  pull_request:
+    branches:
+      - main
+      - master
+    paths:
+      - 'frontend/domain-slug.json'
+      - 'frontend/DEPLOYMENT.md'
+      - 'frontend/scripts/validate-production-slug.mjs'
+      - '.github/workflows/production-publish-checks.yml'
+
+jobs:
+  validate-production-slug:
+    name: Validate Production Slug
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Run production slug validation
+        run: node frontend/scripts/validate-production-slug.mjs
+      
+      - name: Verify domain-slug.json exists
+        run: |
+          if [ ! -f "frontend/domain-slug.json" ]; then
+            echo "❌ Error: frontend/domain-slug.json not found"
+            exit 1
+          fi
+          echo "✓ frontend/domain-slug.json exists"
+      
+      - name: Check slug format
+        run: |
+          SLUG=$(node -p "require('./frontend/domain-slug.json').productionSlug")
+          if [ "$SLUG" != "galfashionworld-2014" ]; then
+            echo "❌ Error: Production slug must be 'galfashionworld-2014', found: $SLUG"
+            exit 1
+          fi
+          echo "✓ Production slug format is correct: $SLUG"
+      
+      - name: Validation summary
+        if: success()
+        run: |
+          echo "✅ All production publish checks passed"
+          echo "   Production slug: galfashionworld-2014"
+          echo "   Ready for public/live deployment"

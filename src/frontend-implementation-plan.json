@@ -1,0 +1,33 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Public/production publish workflow using the galfashionworld-2014 slug",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Ensure the production/public publish workflow references and validates the production slug galfashionworld-2014 and provides clear steps to publish the site as live/public (not draft/review).",
+      "acceptanceCriteria": [
+        "The production/public publish workflow completes successfully without slug validation errors.",
+        "The workflow uses the slug \"galfashionworld-2014\" (matching frontend/domain-slug.json).",
+        "The resulting deployment is publicly accessible as the live/production version (not restricted to draft/review access)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/DEPLOYMENT.md",
+          "operation": "modify",
+          "description": "Update the production/public publish section to explicitly reference frontend/domain-slug.json as the single source of truth for the slug (galfashionworld-2014), and document the steps/checks required to publish as fully public/live (vs draft/review), aligning with the existing deployment checklist. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/scripts/validate-production-slug.mjs",
+          "operation": "create",
+          "description": "Add a small validation script that reads frontend/domain-slug.json and fails with a clear English message if productionSlug is missing or does not exactly equal \"galfashionworld-2014\"; this is used to prevent slug validation errors during the publish workflow. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/.github/workflows/production-publish-checks.yml",
+          "operation": "create",
+          "description": "Add a CI workflow that runs the production slug validation script on pushes/PRs affecting deployment-related files (e.g., frontend/domain-slug.json, frontend/DEPLOYMENT.md) to prevent accidental slug drift before attempting a public/production publish using the github-export-icp-cli template. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

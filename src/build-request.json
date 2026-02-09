@@ -1,0 +1,38 @@
+{
+  "kind": "build_request",
+  "title": "Make the Gal Fashion World site fully public/live using the production slug",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Proceed with the production/public publish workflow to make the currently deployed Gal Fashion World single-page website fully public/live, using the production domain slug \"galfashionworld-2014\" as defined in frontend/domain-slug.json.",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The production/public publish workflow completes successfully without slug validation errors.",
+        "The workflow uses the slug \"galfashionworld-2014\" (matching frontend/domain-slug.json).",
+        "The resulting deployment is publicly accessible as the live/production version (not restricted to draft/review access)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use the production domain slug exactly as \"galfashionworld-2014\" (per frontend/domain-slug.json and frontend/DEPLOYMENT.md).",
+    "Do not modify files under frontend/src/components/ui or any other immutable paths listed in SYSTEM_CONTEXT.",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Do not change website content, layout, styling, or assets as part of this request.",
+    "Do not add new backend functionality or data persistence as part of this request."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Fashion-forward palette with red accents - Light mode */
+        --background: 0.99 0.005 280;
+        --foreground: 0.20 0.015 280;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.20 0.015 280;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.20 0.015 280;
+        
+        --primary: 0.55 0.22 20;
+        --primary-foreground: 0.99 0.005 280;
+        
+        --secondary: 0.95 0.02 280;
+        --secondary-foreground: 0.30 0.03 280;
+        
+        --muted: 0.96 0.01 280;
+        --muted-foreground: 0.50 0.02 280;
+        
+        --accent: 0.65 0.20 15;
+        --accent-foreground: 0.99 0.005 280;
+        
+        --destructive: 0.55 0.22 20;
+        --destructive-foreground: 0.99 0.005 280;
+        
+        --border: 0.92 0.01 280;
+        --input: 0.92 0.01 280;
+        --ring: 0.55 0.22 20;
+        
+        --chart-1: 0.55 0.22 20;
+        --chart-2: 0.60 0.20 15;
+        --chart-3: 0.50 0.18 25;
+        --chart-4: 0.65 0.20 10;
+        --chart-5: 0.58 0.19 30;
+    }
+
+    .dark {
+        --background: 0.15 0.015 280;
+        --foreground: 0.96 0.005 280;
+        
+        --card: 0.18 0.015 280;
+        --card-foreground: 0.96 0.005 280;
+        
+        --popover: 0.16 0.015 280;
+        --popover-foreground: 0.96 0.005 280;
+        
+        --primary: 0.65 0.22 20;
+        --primary-foreground: 0.96 0.005 280;
+        
+        --secondary: 0.25 0.02 280;
+        --secondary-foreground: 0.96 0.005 280;
+        
+        --muted: 0.28 0.02 280;
+        --muted-foreground: 0.65 0.01 280;
+        
+        --accent: 0.60 0.20 15;
+        --accent-foreground: 0.96 0.005 280;
+        
+        --destructive: 0.60 0.20 20;
+        --destructive-foreground: 0.96 0.005 280;
+        
+        --border: 0.28 0.015 280;
+        --input: 0.30 0.015 280;
+        --ring: 0.65 0.22 20;
+        
+        --chart-1: 0.60 0.22 20;
+        --chart-2: 0.65 0.20 15;
+        --chart-3: 0.55 0.18 25;
+        --chart-4: 0.70 0.20 10;
+        --chart-5: 0.63 0.19 30;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        font-style: italic;
+    }
+    
+    /* Ensure all text elements inherit italic styling */
+    body *,
+    button,
+    input,
+    textarea,
+    select,
+    label,
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    div {
+        font-style: italic;
+    }
+}
+

@@ -1,2 +1,3 @@
-# gal-fashion-world-ladies-handbags-manufacturer-single-page-marketing-site
-Exported from Caffeine project: Gal Fashion World – Ladies Handbags Manufacturer (Single-page marketing site)
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

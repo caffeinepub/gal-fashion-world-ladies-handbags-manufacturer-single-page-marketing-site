@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 23,
+  "summary": "Single-page marketing website for Gal Fashion World (ladies handbags manufacturer/exporter to UK & Europe) using provided company details and messaging.",
+  "architectural_notes": [
+    "Website copy and contact details should reflect Gal Fashion World (address, phone/WhatsApp, email) and highlight UK/EU export + 10+ years experience.",
+    "Replace previously requested phrase “beautiful ladies with beautiful bags” with: “Behind every successful/beautiful woman is a fabulous handbag”.",
+    "Update visual theme to convert lilac accents to red across the site.",
+    "Hero section should support an embedded video that auto-plays silently (muted).",
+    "Update displayed company address: change \"7-B/1\" to \"B-1\" wherever the address appears on the site.",
+    "All visible text across the site should use italic styling (global typography update).",
+    "Proceed with publishing/deploying the current website build.",
+    "User approved proceeding to make the deployed site fully public/live; begin production/public publish workflow.",
+    "Production/public deployment should use the user-provided domain/slug: \"galfashionworld-2014\"."
+  ],
+  "known_issues": [
+    "Draft/review build is missing the Hero embedded video (autoplay muted loop) that should display per requirements; user reports no video visible in the draft."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-a-responsive-single-page-website-frontend-with-the-following-sections-and-anchor-navigation-header-site-name-nav-links-hero-headline-short-tagline-primary-cta-button-about-short-paragraph-features-3-6-feature-cards-contact-simple-contact-form-ui-with-name-email-message-fields-and-a-submit-button-and-footer-copyright-links-use-english-for-all-visible-text-using-sensible-placeholder-copy-that-can-be-replaced-later",
+      "title": "Build a responsive single-page website frontend with the following sections and anchor navigation: Header (site name + nav links), Hero (headline, short tagline, primary CTA button), About (short paragraph), Features (3–6 feature cards), Contact (simple contact form UI with name/email/message fields and a submit button), and Footer (copyright + links). Use English for all visible text, using sensible placeholder copy that can be replaced later.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-creative-coherent-visual-theme-across-the-website-colors-typography-spacing-button-styles-card-styles-with-a-distinct-style-appropriate-for-a-general-purpose-website-avoid-a-blue-purple-dominant-palette-enforce-consistent-styling-across-all-sections",
+      "title": "Apply a creative, coherent visual theme across the website (colors, typography, spacing, button styles, card styles) with a distinct style appropriate for a general-purpose website. Avoid a blue/purple-dominant palette. Enforce consistent styling across all sections.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-static-generated-image-assets-to-the-project-and-use-them-in-the-layout-a-hero-illustration-in-the-hero-section-and-a-favicon-for-the-browser-tab-store-images-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend-no-backend-routing",
+      "title": "Add static generated image assets to the project and use them in the layout: a hero illustration in the Hero section and a favicon for the browser tab. Store images under frontend/public/assets/generated and reference them directly from the frontend (no backend routing).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-all-placeholder-branding-and-marketing-copy-across-the-single-page-site-with-gal-fashion-world-content-using-the-user-provided-company-details-and-the-provided-business-statement-in-clear-professional-english",
+      "title": "Replace all placeholder branding and marketing copy across the single-page site with Gal Fashion World content, using the user-provided company details and the provided business statement in clear, professional English.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-section-to-display-the-provided-company-contact-details-email-phone-whatsapp-and-full-address-and-ensure-the-contact-form-microcopy-is-appropriate-for-b2b-handbag-inquiries",
+      "title": "Update the Contact section to display the provided company contact details (email, phone/WhatsApp, and full address) and ensure the contact form microcopy is appropriate for B2B handbag inquiries.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-exact-phrase-beautiful-ladies-with-beautiful-bags-as-visible-user-facing-text-on-the-site-in-the-hero-section-or-another-prominent-area-while-keeping-the-overall-copy-professional-and-coherent",
+      "title": "Add the exact phrase “beautiful ladies with beautiful bags” as visible user-facing text on the site (in the Hero section or another prominent area) while keeping the overall copy professional and coherent.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-handbag-with-model-visuals-to-the-website-using-newly-generated-static-image-assets-fabric-fashion-handbags-with-models-and-integrate-them-into-the-layout-e-g-hero-image-replacement-and-or-a-small-gallery-strip-in-an-existing-section",
+      "title": "Add handbag-with-model visuals to the website using newly generated static image assets (fabric fashion handbags with models) and integrate them into the layout (e.g., Hero image replacement and/or a small gallery/strip in an existing section).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-site-metadata-to-match-gal-fashion-world-branding-including-the-document-title-and-meta-description-in-frontend-index-html",
+      "title": "Update site metadata to match Gal Fashion World branding, including the document title and meta description in frontend/index.html.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-hero-section-to-display-a-small-embedded-video-clip-of-a-model-with-handbags-replacing-or-taking-the-place-of-the-current-static-hero-image-and-configure-the-video-to-auto-play-silently",
+      "title": "Update the Hero section to display a small embedded video clip of a model with handbags, replacing (or taking the place of) the current static hero image, and configure the video to auto-play silently.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-currently-displayed-hero-tagline-text-beautiful-ladies-with-beautiful-bags-with-the-exact-phrase-behind-every-successful-beautiful-woman-is-a-fabulous-handbag",
+      "title": "Replace the currently displayed Hero tagline text “beautiful ladies with beautiful bags” with the exact phrase: “Behind every successful/beautiful woman is a fabulous handbag”.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-convert-the-site-s-lilac-purple-color-theme-accents-to-a-red-based-theme-by-updating-the-global-theme-color-tokens-so-primary-accent-ring-and-related-decorative-elements-render-in-red-tones-across-the-site-including-dark-mode-tokens-if-present",
+      "title": "Convert the site’s lilac/purple color theme accents to a red-based theme by updating the global theme color tokens so primary/accent/ring and related decorative elements render in red tones across the site (including dark mode tokens if present).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-displayed-company-address-in-the-contact-section-so-the-unit-number-changes-from-7-b-1-to-b-1-i-e-show-b-1-dwarka-instead-of-the-current-7-b-1-dwarka",
+      "title": "Update the displayed company address in the Contact section so the unit number changes from \"7-B/1\" to \"B-1\" (i.e., show \"B-1, Dwarka\" instead of the current \"7/B-1, Dwarka\").",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-global-typography-so-all-visible-text-across-the-site-renders-in-italic-by-default-including-headings-paragraphs-navigation-buttons-form-labels-and-footer-text",
+      "title": "Update global typography so all visible text across the site renders in italic by default (including headings, paragraphs, navigation, buttons, form labels, and footer text).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-hero-section-video-is-visible-and-plays-in-the-draft-build-by-making-sure-the-mp4-asset-is-present-in-the-frontend-static-assets-and-loads-successfully-from-the-exact-path-assets-hero-handbag-model-video-mp4-as-referenced-in-frontend-src-components-hero-tsx-if-the-video-cannot-be-loaded-the-existing-fallback-poster-image-behavior-must-still-display-reliably",
+      "title": "Ensure the Hero section video is visible and plays in the draft build by making sure the MP4 asset is present in the frontend static assets and loads successfully from the exact path \"/assets/hero-handbag-model-video.mp4\" (as referenced in frontend/src/components/Hero.tsx). If the video cannot be loaded, the existing fallback poster/image behavior must still display reliably.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-proceed-with-publishing-deploying-the-current-gal-fashion-world-single-page-marketing-website-build-so-it-is-accessible-as-the-live-production-version",
+      "title": "Proceed with publishing/deploying the current Gal Fashion World single-page marketing website build so it is accessible as the live/production version.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-proceed-with-making-the-currently-deployed-gal-fashion-world-single-page-marketing-website-fully-public-live-as-the-production-version",
+      "title": "Proceed with making the currently deployed Gal Fashion World single-page marketing website fully public/live as the production version.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-the-domain-slug-galfashionworld-2014-for-the-gal-fashion-world-production-public-publish-workflow-so-the-deployment-validation-passes-5-50-characters-only-letters-numbers-and-hyphens-and-the-site-is-made-fully-public-live-under-that-slug",
+      "title": "Use the domain slug \"galfashionworld-2014\" for the Gal Fashion World production/public publish workflow so the deployment validation passes (5–50 characters; only letters, numbers, and hyphens) and the site is made fully public/live under that slug.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-proceed-with-the-production-public-publish-workflow-to-make-the-currently-deployed-gal-fashion-world-single-page-website-fully-public-live-using-the-production-domain-slug-galfashionworld-2014-as-defined-in-frontend-domain-slug-json",
+      "title": "Proceed with the production/public publish workflow to make the currently deployed Gal Fashion World single-page website fully public/live, using the production domain slug \"galfashionworld-2014\" as defined in frontend/domain-slug.json.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website (scope and requirements TBD)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Customize website content/branding for Gal Fashion World, include provided company details, add handbag-with-model visuals, and include the phrase \"beautiful ladies with beautiful bags\".",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Update hero/front page to be more colourful, add an autoplay-silent handbag model video clip, replace the hero phrase with \"Behind every successful/beautiful woman is a fabulous handbag\", and change lilac theme elements to red.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add a small MP4 video clip asset showing a model with a handbag to the frontend static assets and ensure it plays on the front page (Hero section) using the existing video element source path \"/assets/hero-handbag-model-video.mp4\" with autoplay, muted audio, loop, and inline playback, while keeping the existing fallback poster image behavior.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Update global typography so all visible text across the site renders in italic.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Publish/deploy the Gal Fashion World single-page marketing website (proceed with publish).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Make the deployed Gal Fashion World website fully public/live (proceed after user approval).",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Gal Fashion World – Ladies Handbags Manufacturer (Single-page marketing site)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
