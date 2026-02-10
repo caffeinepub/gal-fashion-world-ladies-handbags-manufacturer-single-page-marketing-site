@@ -1,38 +1,75 @@
 {
   "kind": "build_request",
-  "title": "Make the Gal Fashion World site fully public/live using the production slug",
+  "title": "Add front-page showcase for bags by material (cotton canvas, towel, jacquard, raffia, jute, beads/embroidery)",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-19",
-      "text": "Proceed with the production/public publish workflow to make the currently deployed Gal Fashion World single-page website fully public/live, using the production domain slug \"galfashionworld-2014\" as defined in frontend/domain-slug.json.",
-      "target": "unknown",
+      "id": "REQ-24",
+      "text": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
+      "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "yes"
+          "please add bags made of cotton canvas, cotton towel, jacquard, paper raffia, jute and beads / embroidery in front page."
         ]
       },
       "acceptanceCriteria": [
-        "The production/public publish workflow completes successfully without slug validation errors.",
-        "The workflow uses the slug \"galfashionworld-2014\" (matching frontend/domain-slug.json).",
-        "The resulting deployment is publicly accessible as the live/production version (not restricted to draft/review access)."
+        "The front page includes a visible section dedicated to bag materials/craftsmanship.",
+        "All six materials are explicitly listed as user-facing text in English: \"Cotton Canvas\", \"Cotton Towel\", \"Jacquard\", \"Paper Raffia\", \"Jute\", and \"Beads / Embroidery\".",
+        "The section is reachable in the existing single-page scroll flow (rendered within the main page, not behind a new route).",
+        "Layout is responsive (1 column on mobile, multiple columns on larger screens) and visually consistent with the existing site theme."
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "please add bags made of cotton canvas, cotton towel, jacquard, paper raffia, jute and beads / embroidery in front page."
+        ]
+      },
+      "acceptanceCriteria": [
+        "There are 6 material cards/tiles, each showing an image plus the material name caption.",
+        "All 6 images load successfully in the browser from /assets/generated/... paths (no backend routing).",
+        "Each image has appropriate English alt text describing the visual (material + bag type), and the caption text matches the material list."
       ]
     }
   ],
   "constraints": [
-    "Use the production domain slug exactly as \"galfashionworld-2014\" (per frontend/domain-slug.json and frontend/DEPLOYMENT.md).",
-    "Do not modify files under frontend/src/components/ui or any other immutable paths listed in SYSTEM_CONTEXT.",
-    "Use English for any user-facing text."
+    "Do not edit files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT.",
+    "Keep the backend as-is (no Motoko changes required for this request).",
+    "Store any new images under frontend/public/assets/generated and reference them via direct public paths."
   ],
   "nonGoals": [
-    "Do not change website content, layout, styling, or assets as part of this request.",
-    "Do not add new backend functionality or data persistence as part of this request."
+    "Do not add ecommerce functionality (cart, checkout, payments).",
+    "Do not add new authentication requirements.",
+    "Do not change the existing Hero video behavior as part of this request."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Handbag made of cotton canvas, studio product photo style (material-cotton-canvas-bag.dim_1200x1200.png)",
+      "Handbag made of cotton towel fabric, studio product photo style (material-cotton-towel-bag.dim_1200x1200.png)",
+      "Handbag made of jacquard fabric, studio product photo style (material-jacquard-bag.dim_1200x1200.png)",
+      "Handbag made of paper raffia, woven texture, studio product photo style (material-paper-raffia-bag.dim_1200x1200.png)",
+      "Handbag made of jute, natural fiber texture, studio product photo style (material-jute-bag.dim_1200x1200.png)",
+      "Handbag with beadwork and embroidery details, studio product photo style (material-beads-embroidery-bag.dim_1200x1200.png)"
+    ],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

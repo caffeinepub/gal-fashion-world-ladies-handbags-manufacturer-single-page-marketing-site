@@ -2,12 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-proceed-with-the-production-public-publish-workflow-to-make-the-currently-deployed-gal-fashion-world-single-page-website-fully-public-live-using-the-production-domain-slug-galfashionworld-2014-as-defined-in-frontend-domain-slug-json",
-      "featureTitle": "Proceed with the production/public publish workflow to make the currently deployed Gal Fashion World single-page website fully public/live, using the production domain slug \"galfashionworld-2014\" as defined in frontend/domain-slug.json.",
+      "featureId": "feature-add-a-new-front-page-showcase-section-or-extend-the-existing-baggallery-section-that-clearly-highlights-gal-fashion-world-bags-made-of-the-following-materials-cotton-canvas-cotton-towel-jacquard-paper-raffia-jute-and-beads-embroidery",
+      "featureTitle": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
       "files": [
-        "frontend/.github/workflows/production-publish-checks.yml",
-        "frontend/DEPLOYMENT.md",
-        "frontend/scripts/validate-production-slug.mjs"
+        "frontend/src/components/BagGallery.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,7 +15,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-19"
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-and-display-one-representative-image-per-requested-material-in-the-new-updated-front-page-materials-showcase-using-static-assets-stored-under-frontend-public-assets-generated-and-referenced-directly-from-the-frontend",
+      "featureTitle": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+      "files": [
+        "frontend/src/components/BagGallery.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
       ],
       "confidence": "high"
     }

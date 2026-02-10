@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Make the currently deployed Gal Fashion World single-page site fully public/live using the production domain slug `galfashionworld-2014`.
+**Goal:** Add a front-page showcase that highlights Gal Fashion World bags by material/craftsmanship, covering six specific materials.
 
 **Planned changes:**
-- Run/complete the production/public publish workflow so the deployment becomes publicly accessible (not draft/review-only).
-- Ensure the publish workflow uses the production slug `galfashionworld-2014` exactly as defined in `frontend/domain-slug.json` (and aligned with `frontend/DEPLOYMENT.md`), avoiding slug validation errors.
+- Add a new front-page section (or extend the existing BagGallery) to showcase bag materials/craftsmanship within the existing single-page scroll flow.
+- Display 6 responsive material tiles/cards, each with a representative image from `/assets/generated/...` and an English caption: "Cotton Canvas", "Cotton Towel", "Jacquard", "Paper Raffia", "Jute", and "Beads / Embroidery".
+- Add appropriate English alt text for each material image (material + bag type) and ensure visuals match the existing site theme.
 
-**User-visible outcome:** The Gal Fashion World site is accessible as the live/production public deployment under the production slug `galfashionworld-2014`.
+**User-visible outcome:** Visitors can scroll the homepage and see a dedicated materials showcase with six clearly labeled material categories, each illustrated with an image.

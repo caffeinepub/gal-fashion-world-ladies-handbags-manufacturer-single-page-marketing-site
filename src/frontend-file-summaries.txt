@@ -1,7 +1,7 @@
 {
-  "frontend/src/App.tsx": "Main application component that composes the single-page marketing layout with Header, Hero, About, Features, Contact sections, and Footer.",
+  "frontend/src/App.tsx": "Main application component that composes the single-page marketing layout with Header, Hero, BagGallery, About, Features, Contact sections, and Footer.",
   "frontend/src/components/Header.tsx": "Fixed header navigation component with \"Gal Fashion World\" branding, smooth scroll anchor links, and mobile menu toggle.",
-  "frontend/src/components/Hero.tsx": "Hero section with enhanced production-ready video loading that includes a 3-second timeout fallback, smooth opacity transitions between video and poster image, and robust error handling to ensure the fallback image always displays when the video is unavailable or slow to load.",
+  "frontend/src/components/Hero.tsx": "Hero section with reduced height media area (max 400-500px), single reliable video element with programmatic play attempt, robust error handling, and fallback poster image using object-cover for proper aspect ratio.",
   "frontend/src/components/About.tsx": "About section describing Gal Fashion World's 10+ years of manufacturing experience, capabilities, and integrated image gallery showcasing handbag products.",
   "frontend/src/components/Features.tsx": "Features section highlighting six key value propositions: in-house design studio, consistent quality, timely deliveries, responsive communication, competitive pricing, and flexible MOQ.",
   "frontend/src/components/Contact.tsx": "Contact section with Gal Fashion World contact details (email, phone/WhatsApp, Delhi address at B-1, Dwarka) and embedded inquiry form.",
@@ -20,5 +20,11 @@
   "frontend/public/assets/generated/hero-illustration.dim_1600x900.png": "Hero section illustration asset for enhanced visual presentation.",
   "frontend/domain-slug.json": "Single source-of-truth configuration file containing the production/public deployment domain slug \"galfashionworld-2014\" for the publish workflow to consume.",
   "frontend/scripts/validate-production-slug.mjs": "Node.js validation script that reads frontend/domain-slug.json and verifies the productionSlug field exactly equals \"galfashionworld-2014\", failing with clear English error messages if the file is missing, contains invalid JSON, or has a slug mismatch.",
-  "frontend/.github/workflows/production-publish-checks.yml": "GitHub Actions CI workflow that runs production slug validation on pushes/PRs affecting deployment-related files, preventing accidental slug drift before public/production publish operations."
+  "frontend/.github/workflows/production-publish-checks.yml": "GitHub Actions CI workflow that runs production slug validation on pushes/PRs affecting deployment-related files, preventing accidental slug drift before public/production publish operations.",
+  "frontend/src/components/BagGallery.tsx": "Responsive bag photo gallery section displaying four uploaded handbag images in a grid layout, plus a new Materials & Craftsmanship sub-section showcasing six material types (Cotton Canvas, Cotton Towel, Jacquard, Paper Raffia, Jute, and Beads / Embroidery) with corresponding images and captions in a responsive grid.",
+  "frontend/public/assets/hero-handbag-model-video.mp4": "Hero section video file served as static asset at /assets/hero-handbag-model-video.mp4.",
+  "frontend/public/assets/2024.jpg": "Static bag photo asset - geometric pattern handbag with brown leather handles.",
+  "frontend/public/assets/2024-1.jpg": "Static bag photo asset - geometric pattern tote bag variant.",
+  "frontend/public/assets/2309.png": "Static bag photo asset - colorful beaded clutch with geometric pattern.",
+  "frontend/public/assets/2309-1.png": "Static bag photo asset - vibrant beaded evening clutch variant."
 }

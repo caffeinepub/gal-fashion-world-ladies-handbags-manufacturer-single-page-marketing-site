@@ -1,4 +1,5 @@
 import { Hero } from './components/Hero';
+import { BagGallery } from './components/BagGallery';
 import { About } from './components/About';
 import { Features } from './components/Features';
 import { Contact } from './components/Contact';
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <BagGallery />
         <About />
         <Features />
         <Contact />

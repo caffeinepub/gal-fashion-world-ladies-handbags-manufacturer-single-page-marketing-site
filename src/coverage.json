@@ -1,28 +1,47 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T16:40:26.670Z",
+  "generatedAt": "2026-02-09T17:28:28.501Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-19",
-        "summary": "Proceed with the production/public publish workflow to make the currently deployed Gal Fashion World single-page website fully public/live, using the production domain slug \"galfashionworld-2014\" as defined in frontend/domain-slug.json.",
+        "id": "REQ-24",
+        "summary": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/DEPLOYMENT.md",
-          "frontend/scripts/validate-production-slug.mjs",
-          "frontend/.github/workflows/production-publish-checks.yml"
+          "frontend/src/components/BagGallery.tsx"
         ],
         "matchedFiles": [
-          "frontend/DEPLOYMENT.md",
-          "frontend/scripts/validate-production-slug.mjs",
-          "frontend/.github/workflows/production-publish-checks.yml"
+          "frontend/src/components/BagGallery.tsx"
+        ]
+      },
+      {
+        "id": "REQ-25",
+        "summary": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
+          "frontend/src/components/BagGallery.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
+          "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
+          "frontend/src/components/BagGallery.tsx"
         ]
       }
     ]
@@ -32,9 +51,13 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/.github/workflows/production-publish-checks.yml",
-    "frontend/DEPLOYMENT.md",
-    "frontend/scripts/validate-production-slug.mjs",
+    "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
+    "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
+    "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
+    "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
+    "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
+    "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
+    "frontend/src/components/BagGallery.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

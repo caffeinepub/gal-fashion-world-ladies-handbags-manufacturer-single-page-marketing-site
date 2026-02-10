@@ -1,11 +1,11 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function Hero() {
   const [videoError, setVideoError] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [showFallback, setShowFallback] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -14,33 +14,34 @@ export function Hero() {
     }
   };
 
-  // Handle video load timeout - if video doesn't load within 3 seconds, show fallback
+  // Attempt to play video programmatically after load
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!videoLoaded && !videoError) {
-        setShowFallback(true);
+    const video = videoRef.current;
+    if (video && videoLoaded && !videoError) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn('Video autoplay failed:', error);
+          // Don't set error state - fallback image will show
+        });
       }
-    }, 3000);
-
-    return () => clearTimeout(timeout);
+    }
   }, [videoLoaded, videoError]);
 
   const handleVideoError = () => {
     setVideoError(true);
-    setShowFallback(true);
   };
 
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
-    setShowFallback(false);
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-16 pb-12 md:pb-16">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 md:py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-6 md:space-y-8">
@@ -70,36 +71,35 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Hero Video/Image */}
+          {/* Hero Video/Image - Reduced Height */}
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-[400px] md:max-h-[500px]">
               {!videoError ? (
-                <div className="relative">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className={`w-full h-auto transition-opacity duration-500 ${videoLoaded && !showFallback ? 'opacity-100' : 'opacity-0'}`}
-                    onError={handleVideoError}
-                    onLoadedData={handleVideoLoaded}
-                    onCanPlay={handleVideoLoaded}
-                    poster="/assets/generated/hero-handbag-model.dim_1600x900.png"
-                  >
-                    <source src="/assets/hero-handbag-model-video.mp4" type="video/mp4" />
-                  </video>
-                  {/* Fallback image - shown while loading or on error */}
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                  onError={handleVideoError}
+                  onLoadedData={handleVideoLoaded}
+                  onCanPlay={handleVideoLoaded}
+                  poster="/assets/generated/hero-handbag-model.dim_1600x900.png"
+                >
+                  <source src="/assets/hero-handbag-model-video.mp4" type="video/mp4" />
+                  {/* Fallback for browsers without video support */}
                   <img
                     src="/assets/generated/hero-handbag-model.dim_1600x900.png"
                     alt="Elegant woman model showcasing premium fabric ladies handbag from Gal Fashion World"
-                    className={`w-full h-auto transition-opacity duration-500 ${showFallback || !videoLoaded ? 'opacity-100' : 'opacity-0 absolute inset-0 pointer-events-none'}`}
+                    className="w-full h-full object-cover"
                   />
-                </div>
+                </video>
               ) : (
                 <img
                   src="/assets/generated/hero-handbag-model.dim_1600x900.png"
                   alt="Elegant woman model showcasing premium fabric ladies handbag from Gal Fashion World"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               )}
             </div>

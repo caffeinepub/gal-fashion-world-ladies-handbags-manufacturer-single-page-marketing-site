@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 23,
+  "projectStateVersion": 27,
   "summary": "Single-page marketing website for Gal Fashion World (ladies handbags manufacturer/exporter to UK & Europe) using provided company details and messaging.",
   "architectural_notes": [
     "Website copy and contact details should reflect Gal Fashion World (address, phone/WhatsApp, email) and highlight UK/EU export + 10+ years experience.",
@@ -11,12 +11,15 @@
     "All visible text across the site should use italic styling (global typography update).",
     "Proceed with publishing/deploying the current website build.",
     "User approved proceeding to make the deployed site fully public/live; begin production/public publish workflow.",
-    "Production/public deployment should use the user-provided domain/slug: \"galfashionworld-2014\"."
+    "Production/public deployment should use the user-provided domain/slug: \"galfashionworld-2014\".",
+    "Hero video area should be shorter/smaller than current layout; keep only one video in the Hero and move bag photos to another section/area."
   ],
   "known_issues": [
-    "Draft/review build is missing the Hero embedded video (autoplay muted loop) that should display per requirements; user reports no video visible in the draft."
+    "Draft/review build is missing the Hero embedded video (autoplay muted loop) that should display per requirements; user reports no video visible in the draft.",
+    "Live site: Hero embedded video is not functioning/playing (user report)."
   ],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Handbag made of cotton canvas, studio product photo style (material-cotton-canvas-bag.dim_1200x1200.png)\n- Handbag made of cotton towel fabric, studio product photo style (material-cotton-towel-bag.dim_1200x1200.png)\n- Handbag made of jacquard fabric, studio product photo style (material-jacquard-bag.dim_1200x1200.png)\n- Handbag made of paper raffia, woven texture, studio product photo style (material-paper-raffia-bag.dim_1200x1200.png)\n- Handbag made of jute, natural fiber texture, studio product photo style (material-jute-bag.dim_1200x1200.png)\n- Handbag with beadwork and embroidery details, studio product photo style (material-beads-embroidery-bag.dim_1200x1200.png)",
   "existing_features": [
     {
       "id": "feature-build-a-responsive-single-page-website-frontend-with-the-following-sections-and-anchor-navigation-header-site-name-nav-links-hero-headline-short-tagline-primary-cta-button-about-short-paragraph-features-3-6-feature-cards-contact-simple-contact-form-ui-with-name-email-message-fields-and-a-submit-button-and-footer-copyright-links-use-english-for-all-visible-text-using-sensible-placeholder-copy-that-can-be-replaced-later",
@@ -161,6 +164,54 @@
         "REQ-19"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-fix-the-hero-section-video-so-it-reliably-plays-on-the-live-site-using-the-existing-video-source-path-assets-hero-handbag-model-video-mp4-in-frontend-src-components-hero-tsx-while-keeping-the-current-fallback-poster-image-behavior",
+      "title": "Fix the Hero section video so it reliably plays on the live site using the existing video source path \"/assets/hero-handbag-model-video.mp4\" in frontend/src/components/Hero.tsx, while keeping the current fallback poster/image behavior.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-missing-mp4-asset-file-to-the-frontend-static-assets-at-the-exact-public-path-frontend-public-assets-hero-handbag-model-video-mp4-so-it-matches-the-hardcoded-source-url-used-by-the-hero-component",
+      "title": "Add the missing MP4 asset file to the frontend static assets at the exact public path frontend/public/assets/hero-handbag-model-video.mp4 so it matches the hardcoded source URL used by the Hero component.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-hero-layout-so-the-video-area-is-shorter-smaller-reduced-vertical-space-while-preserving-a-clean-responsive-layout-across-mobile-and-desktop",
+      "title": "Update the Hero layout so the video area is shorter/smaller (reduced vertical space) while preserving a clean responsive layout across mobile and desktop.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-bag-photos-2024-jpg-2024-1-jpg-2309-png-2309-1-png-to-the-site-and-display-them-in-a-non-hero-area-e-g-a-small-gallery-section-or-strip-placed-outside-the-hero-section",
+      "title": "Add the user-uploaded bag photos (2024.jpg, 2024-1.jpg, 2309.png, 2309-1.png) to the site and display them in a non-Hero area (e.g., a small gallery section or strip placed outside the Hero section).",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-front-page-showcase-section-or-extend-the-existing-baggallery-section-that-clearly-highlights-gal-fashion-world-bags-made-of-the-following-materials-cotton-canvas-cotton-towel-jacquard-paper-raffia-jute-and-beads-embroidery",
+      "title": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-and-display-one-representative-image-per-requested-material-in-the-new-updated-front-page-materials-showcase-using-static-assets-stored-under-frontend-public-assets-generated-and-referenced-directly-from-the-frontend",
+      "title": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -207,6 +258,24 @@
       "summary": "Make the deployed Gal Fashion World website fully public/live (proceed after user approval).",
       "reqIds": [],
       "status": "in_progress"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Fix Hero embedded video so it functions/plays correctly on the live site (autoplay muted, loop, inline).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Adjust Hero section layout: make the video area shorter/smaller, and place additional bag photos elsewhere on the page (non-hero area).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add front-page content/section showcasing bags made of cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
+      "reqIds": [],
+      "status": "pending"
     }
   ],
   "gameProjectType": "none",

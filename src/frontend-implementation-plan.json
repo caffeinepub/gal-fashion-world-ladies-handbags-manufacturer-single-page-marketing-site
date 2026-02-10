@@ -1,31 +1,68 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Public/production publish workflow using the galfashionworld-2014 slug",
+  "title": "Front-page materials showcase for Gal Fashion World bags",
   "requirements": [
     {
-      "id": "REQ-19",
-      "summary": "Ensure the production/public publish workflow references and validates the production slug galfashionworld-2014 and provides clear steps to publish the site as live/public (not draft/review).",
+      "id": "REQ-24",
+      "summary": "Extend the existing front-page BagGallery section with a dedicated, responsive materials/craftsmanship showcase listing the six requested materials.",
       "acceptanceCriteria": [
-        "The production/public publish workflow completes successfully without slug validation errors.",
-        "The workflow uses the slug \"galfashionworld-2014\" (matching frontend/domain-slug.json).",
-        "The resulting deployment is publicly accessible as the live/production version (not restricted to draft/review access)."
+        "The front page includes a visible section dedicated to bag materials/craftsmanship.",
+        "All six materials are explicitly listed as user-facing text in English: \"Cotton Canvas\", \"Cotton Towel\", \"Jacquard\", \"Paper Raffia\", \"Jute\", and \"Beads / Embroidery\".",
+        "The section is reachable in the existing single-page scroll flow (rendered within the main page, not behind a new route).",
+        "Layout is responsive (1 column on mobile, multiple columns on larger screens) and visually consistent with the existing site theme."
       ],
       "file_operations": [
         {
-          "path": "frontend/DEPLOYMENT.md",
+          "path": "frontend/src/components/BagGallery.tsx",
           "operation": "modify",
-          "description": "Update the production/public publish section to explicitly reference frontend/domain-slug.json as the single source of truth for the slug (galfashionworld-2014), and document the steps/checks required to publish as fully public/live (vs draft/review), aligning with the existing deployment checklist. Verify the component's usage instructions before implementing."
+          "description": "Add a new “Materials & Craftsmanship” sub-section below the existing gallery grid inside the same SectionLayout (so it remains in the current single-page scroll flow). Render a responsive grid (1 col mobile; 2+ cols on larger screens) with six tiles and visible captions exactly: Cotton Canvas, Cotton Towel, Jacquard, Paper Raffia, Jute, Beads / Embroidery. Keep styling consistent with current gallery tiles (rounded corners, subtle shadows/hover transitions)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Add six static generated images (one per material) and display them in the materials showcase with correct captions and alt text.",
+      "acceptanceCriteria": [
+        "There are 6 material cards/tiles, each showing an image plus the material name caption.",
+        "All 6 images load successfully in the browser from /assets/generated/... paths (no backend routing).",
+        "Each image has appropriate English alt text describing the visual (material + bag type), and the caption text matches the material list."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Cotton Canvas material card (studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
         },
         {
-          "path": "frontend/scripts/validate-production-slug.mjs",
+          "path": "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
           "operation": "create",
-          "description": "Add a small validation script that reads frontend/domain-slug.json and fails with a clear English message if productionSlug is missing or does not exactly equal \"galfashionworld-2014\"; this is used to prevent slug validation errors during the publish workflow. Verify the component's usage instructions before implementing."
+          "description": "Add the generated static asset for the Cotton Towel material card (studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
         },
         {
-          "path": "frontend/.github/workflows/production-publish-checks.yml",
+          "path": "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
           "operation": "create",
-          "description": "Add a CI workflow that runs the production slug validation script on pushes/PRs affecting deployment-related files (e.g., frontend/domain-slug.json, frontend/DEPLOYMENT.md) to prevent accidental slug drift before attempting a public/production publish using the github-export-icp-cli template. Verify the component's usage instructions before implementing."
+          "description": "Add the generated static asset for the Jacquard material card (studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
+        },
+        {
+          "path": "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Paper Raffia material card (woven texture, studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
+        },
+        {
+          "path": "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Jute material card (natural fiber texture, studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
+        },
+        {
+          "path": "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
+          "operation": "create",
+          "description": "Add the generated static asset for the Beads / Embroidery material card (beadwork and embroidery details, studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
+        },
+        {
+          "path": "frontend/src/components/BagGallery.tsx",
+          "operation": "modify",
+          "description": "Wire the six generated images into the new materials tiles using direct public paths and add accurate English alt text per image (material + bag type). Use the exact filenames: frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png, frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png, frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png, frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png, frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png, frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png."
         }
       ]
     }
