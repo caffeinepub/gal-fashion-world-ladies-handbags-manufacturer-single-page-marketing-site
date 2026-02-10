@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 29,
+  "projectStateVersion": 33,
   "summary": "Single-page marketing website for Gal Fashion World (ladies handbags manufacturer/exporter to UK & Europe) using provided company details and messaging.",
   "architectural_notes": [
     "Website copy and contact details should reflect Gal Fashion World (address, phone/WhatsApp, email) and highlight UK/EU export + 10+ years experience.",

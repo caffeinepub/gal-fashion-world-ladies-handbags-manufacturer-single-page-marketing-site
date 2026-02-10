@@ -1,108 +1,17 @@
 {
   "kind": "build_request",
-  "title": "Remove hero video, switch to Times New Roman italic typography, and update materials photos/labels",
+  "title": "Publish the current site online (production/public)",
   "priority": "normal",
-  "requirements": [
-    {
-      "id": "REQ-26",
-      "text": "Remove all videos from the website UI, including replacing the Hero section <video> element with a static <img> so no video is loaded, displayed, or played anywhere in the frontend.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "please remove all videos."
-        ]
-      },
-      "acceptanceCriteria": [
-        "No <video> elements render in the UI (Hero and elsewhere).",
-        "The Hero media area displays a static image (using the existing hero poster/image asset) with the same responsive sizing and rounded/shadow styling.",
-        "No network request is made for \"/assets/hero-handbag-model-video.mp4\" during normal page load."
-      ]
-    },
-    {
-      "id": "REQ-27",
-      "text": "Update global typography so all visible text across the site uses the font family \"Times New Roman\" (fallback to \"Times\" and then generic serif) and remains italic by default.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "please take font style TIMES NEW ROMAN - ITALIC styles for all text in it."
-        ]
-      },
-      "acceptanceCriteria": [
-        "All major text elements (headings, paragraphs, navigation, buttons, form labels, footer) render with Times New Roman (or Times/serif fallback) and italic styling.",
-        "No immutable-path files are modified to accomplish this (use existing editable global CSS / Tailwind configuration)."
-      ]
-    },
-    {
-      "id": "REQ-28",
-      "text": "Set the font size to 20px for the displayed phrase \"Premium Ladies Handbag Manufacturer\" in the Hero section (the heading text containing \"Premium Ladies\" and \"Handbag Manufacturer\").",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "please make font size 20 for mentioned 'Premium Ladies Handbag Manufacturer\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "The Hero heading text \"Premium Ladies\" and \"Handbag Manufacturer\" renders at 20px (not responsive larger sizes) on both mobile and desktop.",
-        "Other Hero text (tagline, paragraph, buttons) keeps its current sizing unless explicitly required by this request."
-      ]
-    },
-    {
-      "id": "REQ-29",
-      "text": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing Jacquard material card/image and replace it with the user-uploaded white towel bag photo, and display the label text exactly as \"Towel bag\" below/on the photo where the material name appears.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "remove Jacquard bag photo and instead of that add attached white towel bag photo and mentioned Towel bag in below of bags photo."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The materials grid no longer shows the Jacquard card/image.",
-        "A new/updated card uses the uploaded image file \"WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg\" as its src (served as a static asset from frontend/public).",
-        "The visible name for that card is exactly \"Towel bag\" (English casing as shown).",
-        "The image has an appropriate English alt attribute describing the bag visually."
-      ]
-    },
-    {
-      "id": "REQ-30",
-      "text": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing \"Beads / Embroidery\" material card/image and replace it with the user-uploaded beaded bag photo, and display the label text exactly as \"Beaded Clutch\" below/on the photo where the material name appears.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "remove beads / embroidery bags photo and add attached beaded bag photo and mentioned Beaded Clutch in below of bags photo."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The materials grid no longer shows the \"Beads / Embroidery\" card/image.",
-        "A new/updated card uses the uploaded image file \"Bg-02-8.jpg\" as its src (served as a static asset from frontend/public).",
-        "The visible name for that card is exactly \"Beaded Clutch\".",
-        "The image has an appropriate English alt attribute describing the clutch visually."
-      ]
-    }
-  ],
+  "requirements": [],
   "constraints": [
-    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything under frontend/src/components/ui.",
-    "Store and serve the two user-uploaded images as static frontend assets (under frontend/public) and reference them directly via their public /assets/... paths (no backend routing).",
-    "Use English for any user-facing text added/changed by these updates."
+    "Use the canonical production slug exactly as defined in frontend/domain-slug.json (\"galfashionworld-2014\") for any production/public publish workflow so slug validation passes.",
+    "Do not modify files under frontend/src/components/ui or any other frontend immutable paths (compose them instead).",
+    "Keep backend as a single Motoko actor; do not introduce additional backend services."
   ],
   "nonGoals": [
-    "Backend changes (Motoko actor logic, storage, or APIs).",
-    "Adding new sections or features beyond removing videos, typography adjustments, and the requested materials image/label swaps.",
-    "Regenerating existing generated material images unless explicitly required."
+    "No new UI/UX or copy changes as part of this request.",
+    "No new backend features or data persistence changes as part of this request.",
+    "No image generation or asset edits as part of this request."
   ],
   "imageRequirements": {
     "required": [],
