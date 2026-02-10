@@ -1,68 +1,105 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Front-page materials showcase for Gal Fashion World bags",
+  "title": "Remove videos, enforce Times New Roman italic typography, and update materials showcase images",
   "requirements": [
     {
-      "id": "REQ-24",
-      "summary": "Extend the existing front-page BagGallery section with a dedicated, responsive materials/craftsmanship showcase listing the six requested materials.",
+      "id": "REQ-26",
+      "summary": "Remove all videos from the UI and replace the Hero video with a static image so no video loads or plays.",
       "acceptanceCriteria": [
-        "The front page includes a visible section dedicated to bag materials/craftsmanship.",
-        "All six materials are explicitly listed as user-facing text in English: \"Cotton Canvas\", \"Cotton Towel\", \"Jacquard\", \"Paper Raffia\", \"Jute\", and \"Beads / Embroidery\".",
-        "The section is reachable in the existing single-page scroll flow (rendered within the main page, not behind a new route).",
-        "Layout is responsive (1 column on mobile, multiple columns on larger screens) and visually consistent with the existing site theme."
+        "No <video> elements render in the UI (Hero and elsewhere).",
+        "The Hero media area displays a static image (using the existing hero poster/image asset) with the same responsive sizing and rounded/shadow styling.",
+        "No network request is made for \"/assets/hero-handbag-model-video.mp4\" during normal page load."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/BagGallery.tsx",
+          "path": "frontend/src/components/Hero.tsx",
           "operation": "modify",
-          "description": "Add a new “Materials & Craftsmanship” sub-section below the existing gallery grid inside the same SectionLayout (so it remains in the current single-page scroll flow). Render a responsive grid (1 col mobile; 2+ cols on larger screens) with six tiles and visible captions exactly: Cotton Canvas, Cotton Towel, Jacquard, Paper Raffia, Jute, Beads / Embroidery. Keep styling consistent with current gallery tiles (rounded corners, subtle shadows/hover transitions)."
+          "description": "Remove all video-related logic and the <video> element, and render a static <img> using the existing hero image asset while preserving the same container sizing (max heights), object-cover behavior, and rounded/shadow styling."
+        },
+        {
+          "path": "frontend/public/assets/hero-handbag-model-video.mp4",
+          "operation": "delete",
+          "description": "Delete the hero MP4 asset so it cannot be requested by the frontend during normal page load."
         }
       ]
     },
     {
-      "id": "REQ-25",
-      "summary": "Add six static generated images (one per material) and display them in the materials showcase with correct captions and alt text.",
+      "id": "REQ-27",
+      "summary": "Update global typography to Times New Roman (with Times/serif fallback) and italic by default across the site.",
       "acceptanceCriteria": [
-        "There are 6 material cards/tiles, each showing an image plus the material name caption.",
-        "All 6 images load successfully in the browser from /assets/generated/... paths (no backend routing).",
-        "Each image has appropriate English alt text describing the visual (material + bag type), and the caption text matches the material list."
+        "All major text elements (headings, paragraphs, navigation, buttons, form labels, footer) render with Times New Roman (or Times/serif fallback) and italic styling.",
+        "No immutable-path files are modified to accomplish this (use existing editable global CSS / Tailwind configuration)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Cotton Canvas material card (studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Set global font-family to \"Times New Roman\", Times, serif for the site (e.g., on body and inherited elements) while keeping italic styling as the default across visible text."
         },
         {
-          "path": "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Cotton Towel material card (studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
-        },
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update Tailwind's default font family configuration so Tailwind typography and components using the default font stack resolve to \"Times New Roman\" with Times/serif fallback."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Set the Hero heading phrase \"Premium Ladies Handbag Manufacturer\" to a fixed 20px font size.",
+      "acceptanceCriteria": [
+        "The Hero heading text \"Premium Ladies\" and \"Handbag Manufacturer\" renders at 20px (not responsive larger sizes) on both mobile and desktop.",
+        "Other Hero text (tagline, paragraph, buttons) keeps its current sizing unless explicitly required by this request."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Jacquard material card (studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
-        },
+          "path": "frontend/src/components/Hero.tsx",
+          "operation": "modify",
+          "description": "Adjust the Hero heading styling so the combined heading text renders at a fixed 20px on all breakpoints, without changing the sizing of other Hero text elements."
+        }
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "summary": "Replace the Jacquard material card with the uploaded white towel bag photo labeled \"Towel bag\" in BagGallery.",
+      "acceptanceCriteria": [
+        "The materials grid no longer shows the Jacquard card/image.",
+        "A new/updated card uses the uploaded image file \"WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg\" as its src (served as a static asset from frontend/public).",
+        "The visible name for that card is exactly \"Towel bag\" (English casing as shown).",
+        "The image has an appropriate English alt attribute describing the bag visually."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
+          "path": "frontend/public/assets/WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg",
           "operation": "create",
-          "description": "Add the generated static asset for the Paper Raffia material card (woven texture, studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
-        },
-        {
-          "path": "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Jute material card (natural fiber texture, studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
-        },
-        {
-          "path": "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
-          "operation": "create",
-          "description": "Add the generated static asset for the Beads / Embroidery material card (beadwork and embroidery details, studio product photo style). Ensure it is stored under frontend/public/assets/generated and will be referenced directly from the frontend via a public /assets/generated/ path."
+          "description": "Add the user-uploaded white towel bag image as a static public asset so it can be referenced directly via /assets/WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg."
         },
         {
           "path": "frontend/src/components/BagGallery.tsx",
           "operation": "modify",
-          "description": "Wire the six generated images into the new materials tiles using direct public paths and add accurate English alt text per image (material + bag type). Use the exact filenames: frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png, frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png, frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png, frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png, frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png, frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png."
+          "description": "Update the Materials & Craftsmanship materials list to remove the Jacquard card and replace it with a card using /assets/WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg, label text exactly \"Towel bag\", and an English alt attribute that visually describes the bag."
+        }
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "summary": "Replace the \"Beads / Embroidery\" material card with the uploaded beaded bag photo labeled \"Beaded Clutch\" in BagGallery.",
+      "acceptanceCriteria": [
+        "The materials grid no longer shows the \"Beads / Embroidery\" card/image.",
+        "A new/updated card uses the uploaded image file \"Bg-02-8.jpg\" as its src (served as a static asset from frontend/public).",
+        "The visible name for that card is exactly \"Beaded Clutch\".",
+        "The image has an appropriate English alt attribute describing the clutch visually."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/Bg-02-8.jpg",
+          "operation": "create",
+          "description": "Add the user-uploaded beaded clutch image as a static public asset so it can be referenced directly via /assets/Bg-02-8.jpg."
+        },
+        {
+          "path": "frontend/src/components/BagGallery.tsx",
+          "operation": "modify",
+          "description": "Update the Materials & Craftsmanship materials list to remove the \"Beads / Embroidery\" card and replace it with a card using /assets/Bg-02-8.jpg, label text exactly \"Beaded Clutch\", and an English alt attribute that visually describes the clutch."
         }
       ]
     }

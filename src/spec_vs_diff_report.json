@@ -1,32 +1,66 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T17:28:28.498Z",
-  "summary": "BagGallery.tsx was extended with a new “Materials & Craftsmanship” section and a `materials` array that includes all six required material names and references six images under `/assets/generated/...` with per-image alt text. However, the diff does not show the addition of the required image files under `frontend/public/assets/generated`, and the truncated snippet does not conclusively show that each material card renders the required visible name caption.",
+  "generatedAt": "2026-02-10T15:16:02.136Z",
+  "summary": "REQ-27 and REQ-28 appear implemented via global CSS/Tailwind typography changes and a fixed 20px Hero heading size. BagGallery materials list now includes the two requested user-image assets with the exact labels and appropriate English alt text, and no longer shows the prior Jacquard / Beads-Embroidery entries (based on the visible list). However, the diff does not show the required static image files being added under frontend/public, and it’s not fully verifiable from the provided diff that *all* <video> elements across the entire UI are removed (only Hero is shown). There are also unrelated documentation/state summary edits not requested.",
   "missing_requirements": [
     {
-      "id": "REQ-25",
-      "requirement": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
-      "reason": "The code references six `/assets/generated/...` images, but the diff shows no new files added under `frontend/public/assets/generated`, so it’s not evidenced that the required images were actually added to the repo and will load successfully.",
+      "id": "REQ-26",
+      "requirement": "Remove all videos from the website UI so no <video> elements render anywhere and no request is made for /assets/hero-handbag-model-video.mp4.",
+      "reason": "The diff shows Hero uses an <img>, but there is not enough evidence in the provided diff summary to confirm there are no remaining <video> elements elsewhere in the frontend, nor to confirm the video asset is no longer referenced anywhere (only Hero.tsx is shown).",
       "evidence": [
-        "File diff summary shows \"Added: 0\" and \"ADDED FILES: none\"",
-        "frontend/src/components/BagGallery.tsx (references /assets/generated/material-*.png)"
+        "frontend/src/components/Hero.tsx (shows <img>, but does not prove absence of <video> site-wide)"
       ]
     },
     {
-      "id": "REQ-25",
-      "requirement": "There are 6 material cards/tiles, each showing an image plus the material name caption.",
-      "reason": "While the `materials` array includes a `name` for each material, the provided diff is truncated before confirming that `material.name` is rendered as a visible caption for each tile.",
+      "id": "REQ-29",
+      "requirement": "Store and serve the uploaded image \"WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg\" as a static asset under frontend/public and reference it via /assets/... path.",
+      "reason": "BagGallery references the file via /assets/WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg, but the diff shows no new file added under frontend/public/assets (Added files: none), so the required static asset storage is not evidenced as implemented.",
       "evidence": [
-        "frontend/src/components/BagGallery.tsx (truncated after the <img ... /> in the materials map)"
+        "frontend/src/components/BagGallery.tsx",
+        "File diff summary: \"Added: 0\""
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "requirement": "Store and serve the uploaded image \"Bg-02-8.jpg\" as a static asset under frontend/public and reference it via /assets/... path.",
+      "reason": "BagGallery references the file via /assets/Bg-02-8.jpg, but the diff shows no new file added under frontend/public/assets (Added files: none), so the required static asset storage is not evidenced as implemented.",
+      "evidence": [
+        "frontend/src/components/BagGallery.tsx",
+        "File diff summary: \"Added: 0\""
       ]
     }
   ],
-  "hallucinated_features": [],
-  "confidence": 0.74,
+  "hallucinated_features": [
+    {
+      "description": "Added/updated production deployment documentation and production-slug validation workflow references.",
+      "reason": "The BuildRequest only asks to remove videos, update typography, and swap two materials images/labels. Deployment workflow documentation is not requested.",
+      "evidence": [
+        "frontend-file-summaries.txt (mentions frontend/DEPLOYMENT.md, frontend/domain-slug.json, frontend/scripts/validate-production-slug.mjs)"
+      ]
+    },
+    {
+      "description": "Updated/maintained project state tracking metadata.",
+      "reason": "The BuildRequest does not request updates to internal project tracking/state files.",
+      "evidence": [
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Updated frontend file summaries documentation artifact.",
+      "reason": "The BuildRequest does not request changing documentation artifacts like frontend-file-summaries.txt.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.66,
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/components/BagGallery.tsx",
+    "frontend/src/components/Hero.tsx",
+    "frontend/src/index.css",
+    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

@@ -32,9 +32,9 @@ export function BagGallery() {
       name: 'Cotton Towel',
     },
     {
-      src: '/assets/generated/material-jacquard-bag.dim_1200x1200.png',
-      alt: 'Jacquard woven handbag with intricate pattern detail',
-      name: 'Jacquard',
+      src: '/assets/WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg',
+      alt: 'White towel bag with red text design',
+      name: 'Towel bag',
     },
     {
       src: '/assets/generated/material-paper-raffia-bag.dim_1200x1200.png',
@@ -47,9 +47,9 @@ export function BagGallery() {
       name: 'Jute',
     },
     {
-      src: '/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png',
-      alt: 'Handbag with beads and embroidery detailing',
-      name: 'Beads / Embroidery',
+      src: '/assets/Bg-02-8.jpg',
+      alt: 'Beaded clutch with decorative shell and bead embellishments',
+      name: 'Beaded Clutch',
     },
   ];
 

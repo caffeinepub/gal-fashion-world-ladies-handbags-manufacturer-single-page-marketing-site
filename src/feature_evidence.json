@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-new-front-page-showcase-section-or-extend-the-existing-baggallery-section-that-clearly-highlights-gal-fashion-world-bags-made-of-the-following-materials-cotton-canvas-cotton-towel-jacquard-paper-raffia-jute-and-beads-embroidery",
-      "featureTitle": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
+      "featureId": "feature-remove-all-videos-from-the-website-ui-including-replacing-the-hero-section-video-element-with-a-static-img-so-no-video-is-loaded-displayed-or-played-anywhere-in-the-frontend",
+      "featureTitle": "Remove all videos from the website UI, including replacing the Hero section <video> element with a static <img> so no video is loaded, displayed, or played anywhere in the frontend.",
       "files": [
-        "frontend/src/components/BagGallery.tsx"
+        "frontend/src/components/Hero.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,13 +15,50 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-24"
+        "REQ-26"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-and-display-one-representative-image-per-requested-material-in-the-new-updated-front-page-materials-showcase-using-static-assets-stored-under-frontend-public-assets-generated-and-referenced-directly-from-the-frontend",
-      "featureTitle": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+      "featureId": "feature-update-global-typography-so-all-visible-text-across-the-site-uses-the-font-family-times-new-roman-fallback-to-times-and-then-generic-serif-and-remains-italic-by-default",
+      "featureTitle": "Update global typography so all visible text across the site uses the font family \"Times New Roman\" (fallback to \"Times\" and then generic serif) and remains italic by default.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-set-the-font-size-to-20px-for-the-displayed-phrase-premium-ladies-handbag-manufacturer-in-the-hero-section-the-heading-text-containing-premium-ladies-and-handbag-manufacturer",
+      "featureTitle": "Set the font size to 20px for the displayed phrase \"Premium Ladies Handbag Manufacturer\" in the Hero section (the heading text containing \"Premium Ladies\" and \"Handbag Manufacturer\").",
+      "files": [
+        "frontend/src/components/Hero.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-28"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-materials-craftsmanship-showcase-baggallery-remove-the-existing-jacquard-material-card-image-and-replace-it-with-the-user-uploaded-white-towel-bag-photo-and-display-the-label-text-exactly-as-towel-bag-below-on-the-photo-where-the-material-name-appears",
+      "featureTitle": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing Jacquard material card/image and replace it with the user-uploaded white towel bag photo, and display the label text exactly as \"Towel bag\" below/on the photo where the material name appears.",
       "files": [
         "frontend/src/components/BagGallery.tsx"
       ],
@@ -33,7 +70,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-25"
+        "REQ-29"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-materials-craftsmanship-showcase-baggallery-remove-the-existing-beads-embroidery-material-card-image-and-replace-it-with-the-user-uploaded-beaded-bag-photo-and-display-the-label-text-exactly-as-beaded-clutch-below-on-the-photo-where-the-material-name-appears",
+      "featureTitle": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing \"Beads / Embroidery\" material card/image and replace it with the user-uploaded beaded bag photo, and display the label text exactly as \"Beaded Clutch\" below/on the photo where the material name appears.",
+      "files": [
+        "frontend/src/components/BagGallery.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-30"
       ],
       "confidence": "high"
     }

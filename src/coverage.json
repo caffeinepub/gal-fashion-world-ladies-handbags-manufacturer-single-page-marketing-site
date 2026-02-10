@@ -1,20 +1,58 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T17:28:28.501Z",
+  "generatedAt": "2026-02-10T15:16:02.140Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 5,
+    "implemented": 5,
     "items": [
       {
-        "id": "REQ-24",
-        "summary": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
+        "id": "REQ-26",
+        "summary": "Remove all videos from the website UI, including replacing the Hero section <video> element with a static <img> so no video is loaded, displayed, or played anywhere in the frontend.",
         "status": "implemented",
         "plannedFiles": [
+          "frontend/src/components/Hero.tsx",
+          "frontend/public/assets/hero-handbag-model-video.mp4"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Hero.tsx",
+          "frontend/public/assets/hero-handbag-model-video.mp4"
+        ]
+      },
+      {
+        "id": "REQ-27",
+        "summary": "Update global typography so all visible text across the site uses the font family \"Times New Roman\" (fallback to \"Times\" and then generic serif) and remains italic by default.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-28",
+        "summary": "Set the font size to 20px for the displayed phrase \"Premium Ladies Handbag Manufacturer\" in the Hero section (the heading text containing \"Premium Ladies\" and \"Handbag Manufacturer\").",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Hero.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Hero.tsx"
+        ]
+      },
+      {
+        "id": "REQ-29",
+        "summary": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing Jacquard material card/image and replace it with the user-uploaded white towel bag photo, and display the label text exactly as \"Towel bag\" below/on the photo where the material name appears.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg",
           "frontend/src/components/BagGallery.tsx"
         ],
         "matchedFiles": [
@@ -22,25 +60,14 @@
         ]
       },
       {
-        "id": "REQ-25",
-        "summary": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+        "id": "REQ-30",
+        "summary": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing \"Beads / Embroidery\" material card/image and replace it with the user-uploaded beaded bag photo, and display the label text exactly as \"Beaded Clutch\" below/on the photo where the material name appears.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
+          "frontend/public/assets/Bg-02-8.jpg",
           "frontend/src/components/BagGallery.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
-          "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
           "frontend/src/components/BagGallery.tsx"
         ]
       }
@@ -51,13 +78,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/material-beads-embroidery-bag.dim_1200x1200.png",
-    "frontend/public/assets/generated/material-cotton-canvas-bag.dim_1200x1200.png",
-    "frontend/public/assets/generated/material-cotton-towel-bag.dim_1200x1200.png",
-    "frontend/public/assets/generated/material-jacquard-bag.dim_1200x1200.png",
-    "frontend/public/assets/generated/material-jute-bag.dim_1200x1200.png",
-    "frontend/public/assets/generated/material-paper-raffia-bag.dim_1200x1200.png",
+    "frontend/public/assets/hero-handbag-model-video.mp4",
     "frontend/src/components/BagGallery.tsx",
+    "frontend/src/components/Hero.tsx",
+    "frontend/src/index.css",
+    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

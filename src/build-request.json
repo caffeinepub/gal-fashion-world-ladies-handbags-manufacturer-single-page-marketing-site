@@ -1,75 +1,111 @@
 {
   "kind": "build_request",
-  "title": "Add front-page showcase for bags by material (cotton canvas, towel, jacquard, raffia, jute, beads/embroidery)",
+  "title": "Remove hero video, switch to Times New Roman italic typography, and update materials photos/labels",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-24",
-      "text": "Add a new front-page showcase section (or extend the existing BagGallery section) that clearly highlights Gal Fashion World bags made of the following materials: cotton canvas, cotton towel, jacquard, paper raffia, jute, and beads/embroidery.",
+      "id": "REQ-26",
+      "text": "Remove all videos from the website UI, including replacing the Hero section <video> element with a static <img> so no video is loaded, displayed, or played anywhere in the frontend.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "please add bags made of cotton canvas, cotton towel, jacquard, paper raffia, jute and beads / embroidery in front page."
+          "please remove all videos."
         ]
       },
       "acceptanceCriteria": [
-        "The front page includes a visible section dedicated to bag materials/craftsmanship.",
-        "All six materials are explicitly listed as user-facing text in English: \"Cotton Canvas\", \"Cotton Towel\", \"Jacquard\", \"Paper Raffia\", \"Jute\", and \"Beads / Embroidery\".",
-        "The section is reachable in the existing single-page scroll flow (rendered within the main page, not behind a new route).",
-        "Layout is responsive (1 column on mobile, multiple columns on larger screens) and visually consistent with the existing site theme."
+        "No <video> elements render in the UI (Hero and elsewhere).",
+        "The Hero media area displays a static image (using the existing hero poster/image asset) with the same responsive sizing and rounded/shadow styling.",
+        "No network request is made for \"/assets/hero-handbag-model-video.mp4\" during normal page load."
       ]
     },
     {
-      "id": "REQ-25",
-      "text": "Add and display one representative image per requested material in the new/updated front-page materials showcase, using static assets stored under frontend/public/assets/generated and referenced directly from the frontend.",
+      "id": "REQ-27",
+      "text": "Update global typography so all visible text across the site uses the font family \"Times New Roman\" (fallback to \"Times\" and then generic serif) and remains italic by default.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "please add bags made of cotton canvas, cotton towel, jacquard, paper raffia, jute and beads / embroidery in front page."
+          "please take font style TIMES NEW ROMAN - ITALIC styles for all text in it."
         ]
       },
       "acceptanceCriteria": [
-        "There are 6 material cards/tiles, each showing an image plus the material name caption.",
-        "All 6 images load successfully in the browser from /assets/generated/... paths (no backend routing).",
-        "Each image has appropriate English alt text describing the visual (material + bag type), and the caption text matches the material list."
+        "All major text elements (headings, paragraphs, navigation, buttons, form labels, footer) render with Times New Roman (or Times/serif fallback) and italic styling.",
+        "No immutable-path files are modified to accomplish this (use existing editable global CSS / Tailwind configuration)."
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "text": "Set the font size to 20px for the displayed phrase \"Premium Ladies Handbag Manufacturer\" in the Hero section (the heading text containing \"Premium Ladies\" and \"Handbag Manufacturer\").",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "please make font size 20 for mentioned 'Premium Ladies Handbag Manufacturer\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Hero heading text \"Premium Ladies\" and \"Handbag Manufacturer\" renders at 20px (not responsive larger sizes) on both mobile and desktop.",
+        "Other Hero text (tagline, paragraph, buttons) keeps its current sizing unless explicitly required by this request."
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "text": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing Jacquard material card/image and replace it with the user-uploaded white towel bag photo, and display the label text exactly as \"Towel bag\" below/on the photo where the material name appears.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "remove Jacquard bag photo and instead of that add attached white towel bag photo and mentioned Towel bag in below of bags photo."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The materials grid no longer shows the Jacquard card/image.",
+        "A new/updated card uses the uploaded image file \"WhatsApp Image 2026-02-10 at 8.32.42 PM.jpeg\" as its src (served as a static asset from frontend/public).",
+        "The visible name for that card is exactly \"Towel bag\" (English casing as shown).",
+        "The image has an appropriate English alt attribute describing the bag visually."
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "text": "In the Materials & Craftsmanship showcase (BagGallery), remove the existing \"Beads / Embroidery\" material card/image and replace it with the user-uploaded beaded bag photo, and display the label text exactly as \"Beaded Clutch\" below/on the photo where the material name appears.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "remove beads / embroidery bags photo and add attached beaded bag photo and mentioned Beaded Clutch in below of bags photo."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The materials grid no longer shows the \"Beads / Embroidery\" card/image.",
+        "A new/updated card uses the uploaded image file \"Bg-02-8.jpg\" as its src (served as a static asset from frontend/public).",
+        "The visible name for that card is exactly \"Beaded Clutch\".",
+        "The image has an appropriate English alt attribute describing the clutch visually."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT.",
-    "Keep the backend as-is (no Motoko changes required for this request).",
-    "Store any new images under frontend/public/assets/generated and reference them via direct public paths."
+    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything under frontend/src/components/ui.",
+    "Store and serve the two user-uploaded images as static frontend assets (under frontend/public) and reference them directly via their public /assets/... paths (no backend routing).",
+    "Use English for any user-facing text added/changed by these updates."
   ],
   "nonGoals": [
-    "Do not add ecommerce functionality (cart, checkout, payments).",
-    "Do not add new authentication requirements.",
-    "Do not change the existing Hero video behavior as part of this request."
+    "Backend changes (Motoko actor logic, storage, or APIs).",
+    "Adding new sections or features beyond removing videos, typography adjustments, and the requested materials image/label swaps.",
+    "Regenerating existing generated material images unless explicitly required."
   ],
   "imageRequirements": {
-    "required": [
-      "Handbag made of cotton canvas, studio product photo style (material-cotton-canvas-bag.dim_1200x1200.png)",
-      "Handbag made of cotton towel fabric, studio product photo style (material-cotton-towel-bag.dim_1200x1200.png)",
-      "Handbag made of jacquard fabric, studio product photo style (material-jacquard-bag.dim_1200x1200.png)",
-      "Handbag made of paper raffia, woven texture, studio product photo style (material-paper-raffia-bag.dim_1200x1200.png)",
-      "Handbag made of jute, natural fiber texture, studio product photo style (material-jute-bag.dim_1200x1200.png)",
-      "Handbag with beadwork and embroidery details, studio product photo style (material-beads-embroidery-bag.dim_1200x1200.png)"
-    ],
+    "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

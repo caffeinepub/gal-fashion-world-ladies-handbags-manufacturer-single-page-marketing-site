@@ -88,11 +88,12 @@
     
     body {
         @apply bg-background text-foreground;
+        font-family: "Times New Roman", Times, serif;
         font-feature-settings: "rlig" 1, "calt" 1;
         font-style: italic;
     }
     
-    /* Ensure all text elements inherit italic styling */
+    /* Ensure all text elements inherit Times New Roman italic styling */
     body *,
     button,
     input,
@@ -109,6 +110,7 @@
     h6,
     span,
     div {
+        font-family: "Times New Roman", Times, serif;
         font-style: italic;
     }
 }

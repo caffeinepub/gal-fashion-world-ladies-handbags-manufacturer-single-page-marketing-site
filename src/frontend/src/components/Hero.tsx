@@ -1,39 +1,12 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect, useRef } from 'react';
 
 export function Hero() {
-  const [videoError, setVideoError] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
-
-  // Attempt to play video programmatically after load
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video && videoLoaded && !videoError) {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.warn('Video autoplay failed:', error);
-          // Don't set error state - fallback image will show
-        });
-      }
-    }
-  }, [videoLoaded, videoError]);
-
-  const handleVideoError = () => {
-    setVideoError(true);
-  };
-
-  const handleVideoLoaded = () => {
-    setVideoLoaded(true);
   };
 
   return (
@@ -50,7 +23,7 @@ export function Hero() {
                 Behind every successful/beautiful woman is a fabulous handbag
               </p>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="font-bold leading-tight" style={{ fontSize: '20px' }}>
               Premium Ladies
               <span className="block text-primary mt-2">Handbag Manufacturer</span>
             </h1>
@@ -71,37 +44,14 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Hero Video/Image - Reduced Height */}
+          {/* Hero Image - Reduced Height */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-[400px] md:max-h-[500px]">
-              {!videoError ? (
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                  onError={handleVideoError}
-                  onLoadedData={handleVideoLoaded}
-                  onCanPlay={handleVideoLoaded}
-                  poster="/assets/generated/hero-handbag-model.dim_1600x900.png"
-                >
-                  <source src="/assets/hero-handbag-model-video.mp4" type="video/mp4" />
-                  {/* Fallback for browsers without video support */}
-                  <img
-                    src="/assets/generated/hero-handbag-model.dim_1600x900.png"
-                    alt="Elegant woman model showcasing premium fabric ladies handbag from Gal Fashion World"
-                    className="w-full h-full object-cover"
-                  />
-                </video>
-              ) : (
-                <img
-                  src="/assets/generated/hero-handbag-model.dim_1600x900.png"
-                  alt="Elegant woman model showcasing premium fabric ladies handbag from Gal Fashion World"
-                  className="w-full h-full object-cover"
-                />
-              )}
+              <img
+                src="/assets/generated/hero-handbag-model.dim_1600x900.png"
+                alt="Elegant woman model showcasing premium fabric ladies handbag from Gal Fashion World"
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl" />
