@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 33,
+  "projectStateVersion": 39,
   "summary": "Single-page marketing website for Gal Fashion World (ladies handbags manufacturer/exporter to UK & Europe) using provided company details and messaging.",
   "architectural_notes": [
     "Website copy and contact details should reflect Gal Fashion World (address, phone/WhatsApp, email) and highlight UK/EU export + 10+ years experience.",
@@ -248,6 +248,54 @@
         "REQ-30"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-the-four-product-boxes-in-the-baggallery-our-collection-grid-that-correspond-to-black-and-white-geometric-pattern-stylish-geometric-pattern-tote-bag-colorful-beaded-clutch-and-vibrant-beaded-evening-clutch-so-they-are-no-longer-displayed-on-the-website",
+      "title": "Remove the four product boxes in the BagGallery “Our Collection” grid that correspond to: “black and white geometric pattern”, “stylish geometric pattern tote bag”, “colorful beaded clutch”, and “vibrant beaded evening clutch”, so they are no longer displayed on the website.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-materials-craftsmanship-grid-frontend-src-components-baggallery-tsx-replace-the-currently-displayed-beaded-jute-bag-card-image-with-the-uploaded-image-lmbg-36600-removebg-preview-png-and-show-it-as-a-beaded-clutch-item-label-in-english-ensure-the-old-beaded-jute-bag-card-image-is-no-longer-displayed-anywhere-in-that-grid",
+      "title": "In the Materials & Craftsmanship grid (frontend/src/components/BagGallery.tsx), replace the currently displayed \"beaded jute bag\" card/image with the uploaded image \"LMBG-36600-removebg-preview.png\" and show it as a beaded clutch item (label in English). Ensure the old \"beaded jute bag\" card/image is no longer displayed anywhere in that grid.",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-materials-craftsmanship-grid-in-frontend-src-components-baggallery-tsx-to-remove-the-existing-towel-bag-card-and-replace-it-with-a-jute-bag-card-that-uses-the-uploaded-image-assets-bg-02-17-jpg-update-alt-text-to-match-the-new-image",
+      "title": "Update the Materials & Craftsmanship grid in frontend/src/components/BagGallery.tsx to remove the existing \"Towel bag\" card and replace it with a \"Jute\" bag card that uses the uploaded image \"/assets/Bg-02-17.jpg\" (update alt text to match the new image).",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-materials-craftsmanship-grid-in-frontend-src-components-baggallery-tsx-to-remove-the-existing-beaded-clutch-card-and-replace-it-with-a-black-white-canvas-bag-card-that-uses-the-uploaded-image-assets-3801-png-update-alt-text-to-match-the-new-image",
+      "title": "Update the Materials & Craftsmanship grid in frontend/src/components/BagGallery.tsx to remove the existing \"Beaded Clutch\" card and replace it with a \"Black & White Canvas\" bag card that uses the uploaded image \"/assets/3801.png\" (update alt text to match the new image).",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-fashion-model-displaying-diverse-collection-and-close-up-detail-of-premium-fabric-handbag-image-boxes-from-the-about-section-by-updating-frontend-src-components-about-tsx-so-those-two-images-are-no-longer-displayed",
+      "title": "Remove the \"fashion model displaying diverse collection\" and \"close-up detail of premium fabric handbag\" image boxes from the About section by updating frontend/src/components/About.tsx so those two images are no longer displayed.",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-elegant-woman-model-showcasing-premium-fabric-ladies-handbag-image-box-from-the-hero-section-by-updating-frontend-src-components-hero-tsx-so-that-model-image-is-no-longer-displayed-keep-the-hero-section-responsive-and-visually-balanced-after-removal-e-g-allow-a-text-only-hero-on-all-breakpoints-or-replace-with-a-non-model-existing-site-image-already-in-the-project",
+      "title": "Remove the \"Elegant woman model showcasing premium fabric ladies handbag\" image box from the Hero section by updating frontend/src/components/Hero.tsx so that model image is no longer displayed; keep the Hero section responsive and visually balanced after removal (e.g., allow a text-only hero on all breakpoints or replace with a non-model existing site image already in the project).",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -306,9 +354,25 @@
       "status": "pending"
     },
     {
-      "id": "AR-13",
-      "summary": "Update materials/bag photos: remove Jacquard bag photo and replace with attached white towel bag photo labeled \"Towel bag\"; replace beads/embroidery photo with attached beaded bag photo labeled \"Beaded Clutch\".",
+      "id": "AR-16",
+      "summary": "Add the uploaded image file \"LMBG-36600-removebg-preview.png\" to the frontend static assets so it is served publicly (e.g., under frontend/public/assets/) and can be referenced by the UI.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Update BagGallery/materials showcase: remove \"Towel bag\" and replace with a jute bag photo; remove \"Beaded Clutch\" and replace with a black & white canvas bag; remove the boxes \"fashion model displaying collection\", \"close up detail of premium fabric handbag\", and \"elegant woman model showcasing premium fabric ladies handbag\".",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Add the newly uploaded images \"3801.png\" and \"Bg-02-17.jpg\" as static frontend assets so they are publicly accessible via the website.",
+      "reqIds": [
+        "REQ-34"
+      ],
       "status": "pending"
     }
   ],

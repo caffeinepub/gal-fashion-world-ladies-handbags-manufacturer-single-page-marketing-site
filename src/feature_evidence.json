@@ -1,4 +1,77 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-update-the-materials-craftsmanship-grid-in-frontend-src-components-baggallery-tsx-to-remove-the-existing-towel-bag-card-and-replace-it-with-a-jute-bag-card-that-uses-the-uploaded-image-assets-bg-02-17-jpg-update-alt-text-to-match-the-new-image",
+      "featureTitle": "Update the Materials & Craftsmanship grid in frontend/src/components/BagGallery.tsx to remove the existing \"Towel bag\" card and replace it with a \"Jute\" bag card that uses the uploaded image \"/assets/Bg-02-17.jpg\" (update alt text to match the new image).",
+      "files": [
+        "frontend/src/components/BagGallery.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-35"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-materials-craftsmanship-grid-in-frontend-src-components-baggallery-tsx-to-remove-the-existing-beaded-clutch-card-and-replace-it-with-a-black-white-canvas-bag-card-that-uses-the-uploaded-image-assets-3801-png-update-alt-text-to-match-the-new-image",
+      "featureTitle": "Update the Materials & Craftsmanship grid in frontend/src/components/BagGallery.tsx to remove the existing \"Beaded Clutch\" card and replace it with a \"Black & White Canvas\" bag card that uses the uploaded image \"/assets/3801.png\" (update alt text to match the new image).",
+      "files": [
+        "frontend/src/components/BagGallery.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-fashion-model-displaying-diverse-collection-and-close-up-detail-of-premium-fabric-handbag-image-boxes-from-the-about-section-by-updating-frontend-src-components-about-tsx-so-those-two-images-are-no-longer-displayed",
+      "featureTitle": "Remove the \"fashion model displaying diverse collection\" and \"close-up detail of premium fabric handbag\" image boxes from the About section by updating frontend/src/components/About.tsx so those two images are no longer displayed.",
+      "files": [
+        "frontend/src/components/About.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-37"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-elegant-woman-model-showcasing-premium-fabric-ladies-handbag-image-box-from-the-hero-section-by-updating-frontend-src-components-hero-tsx-so-that-model-image-is-no-longer-displayed-keep-the-hero-section-responsive-and-visually-balanced-after-removal-e-g-allow-a-text-only-hero-on-all-breakpoints-or-replace-with-a-non-model-existing-site-image-already-in-the-project",
+      "featureTitle": "Remove the \"Elegant woman model showcasing premium fabric ladies handbag\" image box from the Hero section by updating frontend/src/components/Hero.tsx so that model image is no longer displayed; keep the Hero section responsive and visually balanced after removal (e.g., allow a text-only hero on all breakpoints or replace with a non-model existing site image already in the project).",
+      "files": [
+        "frontend/src/components/Hero.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-38"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

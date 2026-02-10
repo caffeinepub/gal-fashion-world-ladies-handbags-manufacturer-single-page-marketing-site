@@ -1,20 +1,118 @@
 {
   "kind": "build_request",
-  "title": "Publish the current site online (production/public)",
+  "title": "Replace BagGallery and homepage images with new jute and black & white canvas bag photos; remove model/close-up image boxes",
   "priority": "normal",
-  "requirements": [],
+  "requirements": [
+    {
+      "id": "REQ-34",
+      "text": "Add the newly uploaded images \"3801.png\" and \"Bg-02-17.jpg\" as static frontend assets so they are publicly accessible via the website.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "remove towel bag and add jute bag photo and also remove beaded clutch and add black and white canvas bag. and also remove fashion model displaying collection box and also remove close up detail of premium fabric handbag box. Also remove elegant woman model showcasing premium fabric ladies handbag box."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The files exist under frontend/public/assets/ with the exact filenames: frontend/public/assets/3801.png and frontend/public/assets/Bg-02-17.jpg.",
+        "The images can be loaded in the browser directly at /assets/3801.png and /assets/Bg-02-17.jpg (HTTP 200)."
+      ]
+    },
+    {
+      "id": "REQ-35",
+      "text": "Update the Materials & Craftsmanship grid in frontend/src/components/BagGallery.tsx to remove the existing \"Towel bag\" card and replace it with a \"Jute\" bag card that uses the uploaded image \"/assets/Bg-02-17.jpg\" (update alt text to match the new image).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "remove towel bag and add jute bag photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The BagGallery materials array no longer contains an item with name exactly \"Towel bag\".",
+        "A new (or updated) BagGallery materials item is present with name \"Jute\" and src exactly \"/assets/Bg-02-17.jpg\".",
+        "The rendered Materials & Craftsmanship grid displays the new Jute bag card image and label."
+      ]
+    },
+    {
+      "id": "REQ-36",
+      "text": "Update the Materials & Craftsmanship grid in frontend/src/components/BagGallery.tsx to remove the existing \"Beaded Clutch\" card and replace it with a \"Black & White Canvas\" bag card that uses the uploaded image \"/assets/3801.png\" (update alt text to match the new image).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "remove beaded clutch and add black and white canvas bag"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The BagGallery materials array no longer contains an item with name exactly \"Beaded Clutch\".",
+        "A new (or updated) BagGallery materials item is present with name \"Black & White Canvas\" and src exactly \"/assets/3801.png\".",
+        "The previous beaded clutch image (currently referenced as \"/assets/LMBG-36600-removebg-preview.png\") is no longer used anywhere in the BagGallery materials grid."
+      ]
+    },
+    {
+      "id": "REQ-37",
+      "text": "Remove the \"fashion model displaying diverse collection\" and \"close-up detail of premium fabric handbag\" image boxes from the About section by updating frontend/src/components/About.tsx so those two images are no longer displayed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "also remove fashion model displaying collection box and also remove close up detail of premium fabric handbag box"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The About section no longer renders an <img> with src \"/assets/generated/gallery-models-bags-1.dim_1200x800.png\".",
+        "The About section no longer renders an <img> with src \"/assets/generated/gallery-bag-closeup-1.dim_1200x800.png\".",
+        "The About section layout remains visually clean and responsive after removing the image gallery boxes (no broken spacing/overlaps on mobile and desktop)."
+      ]
+    },
+    {
+      "id": "REQ-38",
+      "text": "Remove the \"Elegant woman model showcasing premium fabric ladies handbag\" image box from the Hero section by updating frontend/src/components/Hero.tsx so that model image is no longer displayed; keep the Hero section responsive and visually balanced after removal (e.g., allow a text-only hero on all breakpoints or replace with a non-model existing site image already in the project).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Also remove elegant woman model showcasing premium fabric ladies handbag box."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Hero section no longer renders an <img> with src \"/assets/generated/hero-handbag-model.dim_1600x900.png\".",
+        "The Hero section no longer includes user-facing text that describes a model image in its image alt text (since the model image is removed).",
+        "The Hero section remains responsive and visually balanced on mobile and desktop after the image box removal (no empty large media container)."
+      ]
+    }
+  ],
   "constraints": [
-    "Use the canonical production slug exactly as defined in frontend/domain-slug.json (\"galfashionworld-2014\") for any production/public publish workflow so slug validation passes.",
-    "Do not modify files under frontend/src/components/ui or any other frontend immutable paths (compose them instead).",
-    "Keep backend as a single Motoko actor; do not introduce additional backend services."
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui (compose only).",
+    "Do not introduce any backend changes; this request is frontend/assets only."
   ],
   "nonGoals": [
-    "No new UI/UX or copy changes as part of this request.",
-    "No new backend features or data persistence changes as part of this request.",
-    "No image generation or asset edits as part of this request."
+    "Do not change site copy, metadata, typography, or the red theme tokens beyond what is required to remove/replace the specified images.",
+    "Do not add video elements or any new sections as part of this change."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

@@ -1,6 +1,91 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Publish the current site online (production/public)",
-  "requirements": []
+  "title": "Update BagGallery and homepage sections to use new jute/canvas images and remove model/close-up image boxes",
+  "requirements": [
+    {
+      "id": "REQ-34",
+      "summary": "Add 3801.png and Bg-02-17.jpg to public static assets so they can be loaded from /assets/",
+      "acceptanceCriteria": [
+        "The files exist under frontend/public/assets/ with the exact filenames: frontend/public/assets/3801.png and frontend/public/assets/Bg-02-17.jpg.",
+        "The images can be loaded in the browser directly at /assets/3801.png and /assets/Bg-02-17.jpg (HTTP 200)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/3801.png",
+          "operation": "create",
+          "description": "Add the uploaded image as a static public asset with the exact filename so it is accessible at /assets/3801.png."
+        },
+        {
+          "path": "frontend/public/assets/Bg-02-17.jpg",
+          "operation": "create",
+          "description": "Add the uploaded image as a static public asset with the exact filename so it is accessible at /assets/Bg-02-17.jpg."
+        }
+      ]
+    },
+    {
+      "id": "REQ-35",
+      "summary": "Replace the BagGallery 'Towel bag' card with a 'Jute' card using /assets/Bg-02-17.jpg and updated alt text",
+      "acceptanceCriteria": [
+        "The BagGallery materials array no longer contains an item with name exactly \"Towel bag\".",
+        "A new (or updated) BagGallery materials item is present with name \"Jute\" and src exactly \"/assets/Bg-02-17.jpg\".",
+        "The rendered Materials & Craftsmanship grid displays the new Jute bag card image and label."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BagGallery.tsx",
+          "operation": "modify",
+          "description": "Update the materials array to remove the item named \"Towel bag\" and add/replace it with an item named \"Jute\" using src \"/assets/Bg-02-17.jpg\" and matching alt text."
+        }
+      ]
+    },
+    {
+      "id": "REQ-36",
+      "summary": "Replace the BagGallery 'Beaded Clutch' card with a 'Black & White Canvas' card using /assets/3801.png and updated alt text",
+      "acceptanceCriteria": [
+        "The BagGallery materials array no longer contains an item with name exactly \"Beaded Clutch\".",
+        "A new (or updated) BagGallery materials item is present with name \"Black & White Canvas\" and src exactly \"/assets/3801.png\".",
+        "The previous beaded clutch image (currently referenced as \"/assets/LMBG-36600-removebg-preview.png\") is no longer used anywhere in the BagGallery materials grid."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BagGallery.tsx",
+          "operation": "modify",
+          "description": "Update the materials array to remove the item named \"Beaded Clutch\" and add/replace it with an item named \"Black & White Canvas\" using src \"/assets/3801.png\" and matching alt text; ensure the materials grid no longer references \"/assets/LMBG-36600-removebg-preview.png\"."
+        }
+      ]
+    },
+    {
+      "id": "REQ-37",
+      "summary": "Remove the two image boxes from the About section so the model and close-up images are no longer displayed",
+      "acceptanceCriteria": [
+        "The About section no longer renders an <img> with src \"/assets/generated/gallery-models-bags-1.dim_1200x800.png\".",
+        "The About section no longer renders an <img> with src \"/assets/generated/gallery-bag-closeup-1.dim_1200x800.png\".",
+        "The About section layout remains visually clean and responsive after removing the image gallery boxes (no broken spacing/overlaps on mobile and desktop)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/About.tsx",
+          "operation": "modify",
+          "description": "Remove (or conditionally omit) the About image gallery grid so it no longer renders images with src \"/assets/generated/gallery-models-bags-1.dim_1200x800.png\" and \"/assets/generated/gallery-bag-closeup-1.dim_1200x800.png\"; adjust spacing so the section remains responsive and visually balanced."
+        }
+      ]
+    },
+    {
+      "id": "REQ-38",
+      "summary": "Remove the model image box from the Hero section and keep the hero responsive and visually balanced without model-related alt text",
+      "acceptanceCriteria": [
+        "The Hero section no longer renders an <img> with src \"/assets/generated/hero-handbag-model.dim_1600x900.png\".",
+        "The Hero section no longer includes user-facing text that describes a model image in its image alt text (since the model image is removed).",
+        "The Hero section remains responsive and visually balanced on mobile and desktop after the image box removal (no empty large media container)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Hero.tsx",
+          "operation": "modify",
+          "description": "Remove the hero image container that renders \"/assets/generated/hero-handbag-model.dim_1600x900.png\" and its model-specific alt text; update the Hero layout/grid so it remains visually balanced and responsive without leaving an empty media column/container."
+        }
+      ]
+    }
+  ]
 }
